@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <title>艺数视界平台 v7.0</title>
+    
+  </head>
+  <body>
+    <!-- ================= 前台 APP 容器 ================= -->
+    <div id="app">
+      <!-- ================= 1. 文商首页 ================= -->
+      <div id="page-home" class="page-container active">
+        <div class="header">
+          <div class="logo">艺数视界</div>
+          <div class="search-bar">
+            <span>🔍</span><input type="text" placeholder="礼物精选" />
+          </div>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel-inner" id="home-carousel-inner">
+            <img
+              src="img/1.png"
+              alt="Banner 1"
+              onerror="this.src='https://via.placeholder.com/800x400/c43c33/fff?text=非遗精选1'"
+            />
+            <img
+              src="img/2.png"
+              alt="Banner 2"
+              onerror="this.src='https://via.placeholder.com/800x400/dcb689/fff?text=非遗精选2'"
+            />
+            <img
+              src="img/3.png"
+              alt="Banner 3"
+              onerror="this.src='https://via.placeholder.com/800x400/5a8c8c/fff?text=非遗精选3'"
+            />
+            <img
+              src="img/3.png"
+              alt="Banner 4"
+              onerror="this.src='https://via.placeholder.com/800x400/5a8c6b/fff?text=非遗精选4'"
+            />
+          </div>
+        </div>
+
+        <div class="text-nav">
+          <div class="text-item active">全部分类</div>
+          <div class="text-item">珍贵木制</div>
+          <div class="text-item">漆器工艺</div>
+          <div class="text-item">紫砂陶瓷</div>
+          <div class="text-item">雕刻艺术</div>
+        </div>
+        <div class="icon-nav">
+          <div class="icon-item">
+            <img src="img/4.png" onerror="this.src = 'https://via.placeholder.com/200/eee?text=图'"/><span>联盟商家</span>
+          </div>
+          <div class="icon-item">
+            <img src="img/5.png" onerror="this.src = 'https://via.placeholder.com/200/eee?text=图'"/><span>生态伙伴</span>
+          </div>
+          <div class="icon-item">
+            <img src="img/6.png" onerror="this.src = 'https://via.placeholder.com/200/eee?text=图'"/><span>积分商城</span>
+          </div>
+          <div class="icon-item">
+            <img src="img/7.png" onerror="this.src = 'https://via.placeholder.com/200/eee?text=图'"/><span>大师手作</span>
+          </div>
+          <div class="icon-item">
+            <img src="img/8.png" onerror="this.src = 'https://via.placeholder.com/200/eee?text=图'"/><span>私人定制</span>
+          </div>
+        </div>
+        <div class="notice-bar">
+          <span class="notice-icon">📢</span>平台活动可以获得大量积分奖励，积分可兑换商品...
+        </div>
+        <div class="promo-blocks">
+          <div class="promo-card promo-1">
+            <h3>非遗传承</h3>
+            <span>非遗精品 点击购买 ▶</span>
+          </div>
+          <div class="promo-card promo-2">
+            <h3>工艺美术</h3>
+            <span>美术精品 点击购买 ▶</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; padding: 15px 0; color: #999; font-size: 14px;">—— 商品推荐 ——</div>
+        <!-- 动态渲染的商品列表 -->
+        <div class="product-grid" id="home-product-list"></div>
+      </div>
+
+      <!-- ================= 2. 大师名家 (全新重构) ================= -->
+      <div id="page-masters" class="page-container">
+        <!-- 【修改点】：大师页面统一搜索栏样式 -->
+        <div class="header">
+          <div class="logo">艺数视界</div>
+          <div class="search-bar">
+            <span>🔍</span><input type="text" placeholder="搜索商品/大师" />
+          </div>
+        </div>
+
+        <div class="carousel-container" style="height: 220px">
+          <div class="carousel-inner" id="masters-carousel-inner">
+            <img src="img/刘立忠.jpg" onerror="this.src='https://via.placeholder.com/800x440/333/fff?text=大师轮播1'"/>
+            <img src="img/安际衡.jpg" onerror="this.src='https://via.placeholder.com/800x440/555/fff?text=大师轮播2'"/>
+            <img src="img/高英坡.jpg" onerror="this.src='https://via.placeholder.com/800x440/777/fff?text=大师轮播3'"/>
+            <img src="img/张同禄.jpg" onerror="this.src='https://via.placeholder.com/800x440/999/fff?text=大师轮播4'"/>
+          </div>
+        </div>
+
+        <!-- 专栏 1 - 非遗传承 -->
+        <div class="section-title">
+          <div style="display: flex; flex-direction: column">
+            <span style="font-size: 16px">非遗传承</span>
+            <span style="font-size: 10px; color: #ccc; font-weight: normal; margin-top: 2px;">FEIYICHUANCHENG</span>
+          </div>
+          <span style="font-weight: normal; font-size: 12px; color: #999">查看更多 &gt;</span>
+        </div>
+        <div class="master-scroll">
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/安际衡.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">安际衡</div></div>
+            <div class="master-card-title">国家级非遗磁州窑烧制技艺传承人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/李泽霞.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">李泽霞</div></div>
+            <div class="master-card-title">衡水老白干蒸馏酒传统酿造技艺非遗传人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/牛俊启.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">牛俊启</div></div>
+            <div class="master-card-title">国家级非遗胜芳灯会传承人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/石俊凤.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">石俊凤</div></div>
+            <div class="master-card-title">国家级非遗丰宁满族剪纸传承人</div>
+          </div>
+        </div>
+
+        <!-- 专栏 2 - 工艺美术 -->
+        <div class="section-title">
+          <div style="display: flex; flex-direction: column">
+            <span style="font-size: 16px">工艺美术大师</span>
+            <span style="font-size: 10px; color: #ccc; font-weight: normal; margin-top: 2px;">GONGYIMEISHU</span>
+          </div>
+          <span style="font-weight: normal; font-size: 12px; color: #999">查看更多 &gt;</span>
+        </div>
+        <div class="master-scroll">
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/刘立忠.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">刘立忠</div></div>
+            <div class="master-card-title">磁州窑烧制技艺非遗传人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/庞永辉.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">庞永辉</div></div>
+            <div class="master-card-title">正高级工艺美术师</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/张同禄.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">张同禄</div></div>
+            <div class="master-card-title">景泰蓝制作技艺非遗传人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/王树昌.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">王树昌</div></div>
+            <div class="master-card-title">玉雕工艺大师</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/高英坡.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">高英坡</div></div>
+            <div class="master-card-title">正高级工艺美术师</div>
+          </div>
+        </div>
+
+        <!-- 专栏 3 - 名人名家 -->
+        <div class="section-title">
+          <div style="display: flex; flex-direction: column">
+            <span style="font-size: 16px">名人名家</span>
+            <span style="font-size: 10px; color: #ccc; font-weight: normal; margin-top: 2px;">MINGRENMINGJIA</span>
+          </div>
+          <span style="font-weight: normal; font-size: 12px; color: #999">查看更多 &gt;</span>
+        </div>
+        <div class="master-scroll">
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/王习三.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">王习三</div></div>
+            <div class="master-card-title">冀派内画创始人</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/徐光耀.jpg" onerror="this.src = 'img/徐光耀.jpg'"/><div class="master-card-name">徐光耀</div></div>
+            <div class="master-card-title">经典红色文学作家</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/郭海博.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">郭海博</div></div>
+            <div class="master-card-title">铁板浮雕技艺大师</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/何申.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">何申</div></div>
+            <div class="master-card-title">河北文坛 “三驾马车” 之一</div>
+          </div>
+          <div class="master-card-new">
+            <div class="master-card-img-box"><img src="img/铁凝.jpg" onerror="this.src = 'https://via.placeholder.com/300x400/eee?text=人物'"/><div class="master-card-name">铁凝</div></div>
+            <div class="master-card-title">当代著名作家</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 社群资讯 -->
+      <div id="page-news" class="page-container">
+        <!-- 【修改点】：资讯页面统一搜索栏样式 -->
+        <div class="header">
+          <div class="logo">艺数视界</div>
+          <div class="search-bar">
+            <span>🔍</span><input type="text" placeholder="搜索资讯" />
+          </div>
+        </div>
+        
+        <div class="news-item">
+          <div style="font-weight: bold; font-size: 16px">
+            【非遗传承】保定曲阳石雕作品《反弹琵琶》斩获国家级工艺美术金奖
+          </div>
+          <img class="news-img" src="img/e.jpg" alt="资讯" />
+        </div>
+        <div class="news-item">
+          <div style="font-weight: bold; font-size: 16px">
+            【雄安非遗保护】白洋淀芦苇画技艺纳入省级非遗代表性项目名录
+          </div>
+          <img class="news-img" src="img/f.jpg" alt="资讯" />
+        </div>
+      </div>
+
+      <!-- 4. 会员中心 -->
+      <div id="page-member" class="page-container">
+        <div class="member-header-container">
+          <div class="member-top-nav"><span>会员中心</span></div>
+          <div class="user-card">
+            <div class="user-info-top" onclick="requireLogin()" style="cursor: pointer">
+              <div class="login-text" id="member-username">点击登录</div>
+              <img class="avatar" id="member-avatar" src="https://images.unsplash.com/photo-1594824436845-a75168019bfa?w=200&q=80" />
+            </div>
+            <div class="user-stats">
+              <div class="stat-item"><div class="val">0</div><div class="lbl">积分</div></div>
+              <div class="stat-item"><div class="val">0.00</div><div class="lbl">余额</div></div>
+              <div class="stat-item"><div class="val">0</div><div class="lbl">优惠券</div></div>
+            </div>
+
+            <div class="action-btn-group">
+              <button class="logout-btn" id="btn-edit-profile" style="display: none" onclick="openEditProfileModal()">修改资料</button>
+              <button class="logout-btn" id="btn-admin-login" style="display: none" onclick="openAdminVerifyModal()">登录后台</button>
+              <button class="logout-btn" id="btn-logout" style="display: none" onclick="logout()">退出登录</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="member-section">
+          <div style="font-weight: bold; margin-bottom: 10px">我的订单</div>
+          <div class="member-icon-grid">
+            <div class="member-icon-item" onclick="showUserOrders('pending_shipment')"><i>📦</i><span>待发货</span><span class="badge" id="badge-shipment">0</span></div>
+            <div class="member-icon-item" onclick="showUserOrders('pending_receipt')"><i>🚚</i><span>待收货</span><span class="badge" id="badge-receipt">0</span></div>
+            <div class="member-icon-item" onclick="showUserOrders('pending_review')"><i>💬</i><span>待评价</span><span class="badge" id="badge-review">0</span></div>
+            <div class="member-icon-item"><i>↩️</i><span>退换货</span></div>
+          </div>
+        </div>
+
+        <!-- 【修改点】：补充“我的应用”新功能入口 -->
+        <div class="member-section">
+          <div style="font-weight: bold; margin-bottom: 10px">我的应用</div>
+          <div class="member-icon-grid">
+            <!-- 占位项，原有的功能 -->
+            
+            <!-- 新增项 -->
+            <div class="member-icon-item" onclick="showFavorites()"><i>🔖</i><span>我的收藏</span></div>
+            <div class="member-icon-item" onclick="showCart()"><i>🛒</i><span>购物车</span></div>
+            <div class="member-icon-item" onclick="showEmptyPage('我的社区', '暂无社区动态')"><i>👥</i><span>我的社区</span></div>
+            <div class="member-icon-item" onclick="showEmptyPage('我的足迹', '暂无浏览足迹')"><i>👣</i><span>我的足迹</span></div>
+            <div class="member-icon-item" onclick="showAddressPage()"><i>📍</i><span>收货地址</span></div>
+          </div>
+        </div>
+
+        <!-- 【修改点】：补充“我的卡券” -->
+        <div class="member-section">
+            <div style="font-weight: bold; margin-bottom: 10px; display:flex; justify-content:space-between;">
+                <span>我的卡券</span>
+                <span style="font-size:12px; color:#999; font-weight:normal;">全部卡券 &gt;</span>
+            </div>
+            <div class="member-icon-grid">
+              <div class="member-icon-item" onclick="showEmptyPage('我的卡券', '暂无可用卡券')"><i>🎟️</i><span>待使用</span></div>
+              <div class="member-icon-item" onclick="showEmptyPage('我的卡券', '暂无即将过期卡券')"><i>⏳</i><span>即将过期</span></div>
+              <div class="member-icon-item" onclick="showEmptyPage('我的卡券', '暂无已使用卡券')"><i>✅</i><span>已使用</span></div>
+              <div class="member-icon-item" onclick="showEmptyPage('我的卡券', '暂无已过期卡券')"><i>❌</i><span>已过期</span></div>
+            </div>
+          </div>
+
+      </div>
+
+      <!-- 底部导航 -->
+      <div class="tab-bar">
+        <div class="tab-item active" onclick="switchTab('home', this)"><i>🏠</i><span>艺数首页</span></div>
+        <div class="tab-item" onclick="switchTab('masters', this)"><i>🪭</i><span>大师名家</span></div>
+        <div class="tab-item" onclick="switchTab('news', this)"><i>💬</i><span>社区资讯</span></div>
+        <div class="tab-item" onclick="switchTab('member', this, true)"><i>👤</i><span>个人中心</span></div>
+      </div>
+    </div>
+
+    <!-- ================= 各类独立子页 (前台详情/结算等) ================= -->
+    <div id="page-detail" class="full-page">
+      <div class="detail-header" onclick="closeFullPage('page-detail')">&lt;</div>
+      <div class="detail-img-box"><img id="detail-img" src="" alt="商品图" /></div>
+      <div class="detail-info">
+        <!-- 【修改点】：商品详情页增加收藏按钮 -->
+        <div class="detail-price-row" style="display:flex; justify-content:space-between; align-items:center;">
+            <span id="detail-price">¥ 0.00</span>
+            <span id="btn-favorite" onclick="toggleFavorite()" style="font-size:16px; color:#999; cursor:pointer;">🤍 收藏</span>
+        </div>
+        <div class="detail-title" id="detail-title">商品名称</div>
+      </div>
+      <div class="detail-desc" id="detail-desc">这里是商品详细介绍...</div>
+      <div class="detail-bottom-bar">
+        <div class="action-btns">
+          <!-- 【修改点】：增加加入购物车按钮 -->
+          <button class="btn-cart" onclick="addToCart()" style="flex: 1">加入购物车</button>
+          <button class="btn-buy" onclick="goToCheckout()" style="flex: 1">立即购买</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-checkout" class="full-page" style="background: #f5f5f5">
+      <div class="detail-header" onclick="closeFullPage('page-checkout')">&lt;</div>
+      <div class="checkout-header">确认订单</div>
+      <div class="checkout-section">
+        <h3>收货地址 <span style="font-size:12px; color:var(--primary-color); float:right; cursor:pointer;" onclick="showAddressPage()">[修改地址]</span></h3>
+        <p style="font-size: 12px; color: #999; margin: 5px 0">可在此确认或进入会员中心修改</p>
+        <div class="form-group">
+          <!-- 结算页直接展示完整的地址信息（默认从修改地址页读取） -->
+          <textarea id="checkout-address" rows="3" placeholder="请输入您的详细收货地址 (省市区街道门牌号)"></textarea>
+        </div>
+      </div>
+      <div class="checkout-section">
+        <h3>商品信息</h3>
+        <div style="display: flex; margin-top: 10px">
+          <img id="checkout-img" src="" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px; margin-right: 10px;" />
+          <div>
+            <div id="checkout-title" style="font-size: 14px; margin-bottom: 5px">名称</div>
+            <div id="checkout-price" style="color: var(--primary-color); font-weight: bold">¥0.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="checkout-section">
+        <h3>支付方式</h3>
+        <label class="payment-method"><input type="radio" name="pay-method" value="WeChat" checked /> 🟢 微信支付</label>
+        <label class="payment-method"><input type="radio" name="pay-method" value="Alipay" /> 🔵 支付宝</label>
+      </div>
+      <div class="pay-footer">
+        <div>合计: <span id="checkout-total" style="color: var(--primary-color); font-size: 20px; font-weight: bold;">¥0.00</span></div>
+        <button class="pay-btn" onclick="submitOrder()">立即支付</button>
+      </div>
+    </div>
+
+    <!-- 订单列表页 -->
+    <div id="page-my-orders" class="full-page" style="background: #f5f5f5">
+      <div class="detail-header" onclick="closeFullPage('page-my-orders')">&lt;</div>
+      <div class="checkout-header" id="my-orders-title">订单列表</div>
+      <div id="my-orders-list" style="padding-bottom: 20px"></div>
+    </div>
+
+    <!-- 【新增点】：收藏列表页 -->
+    <div id="page-favorites" class="full-page" style="background: #f5f5f5">
+        <div class="detail-header" onclick="closeFullPage('page-favorites')">&lt;</div>
+        <div class="checkout-header">我的收藏</div>
+        <div id="my-favorites-list" style="padding-bottom: 20px"></div>
+    </div>
+
+    <!-- 【新增点】：购物车列表页 -->
+    <div id="page-cart" class="full-page" style="background: #f5f5f5">
+        <div class="detail-header" onclick="closeFullPage('page-cart')">&lt;</div>
+        <div class="checkout-header">购物车</div>
+        <div id="my-cart-list" style="padding-bottom: 20px"></div>
+    </div>
+
+    <!-- 【新增点】：通用空页面 (社区、足迹、卡券等) -->
+    <div id="page-empty" class="full-page" style="background: #f5f5f5">
+        <div class="detail-header" onclick="closeFullPage('page-empty')">&lt;</div>
+        <div class="checkout-header" id="empty-page-title">页面名称</div>
+        <div style="text-align:center; padding:50px 20px; color:#999; font-size:16px;">
+            <div style="font-size:40px; margin-bottom:10px;">📭</div>
+            <div id="empty-page-msg">暂无数据</div>
+        </div>
+    </div>
+
+    <!-- 【新增点】：收货地址管理页 -->
+    <div id="page-address" class="full-page" style="background: #f5f5f5">
+        <div class="detail-header" onclick="closeFullPage('page-address')">&lt;</div>
+        <div class="checkout-header">收货地址设置</div>
+        <div class="checkout-section">
+            <div class="form-group">
+                <label>收货人姓名</label>
+                <input type="text" id="addr-name" placeholder="请输入姓名">
+            </div>
+            <div class="form-group">
+                <label>联系方式</label>
+                <input type="tel" id="addr-phone" placeholder="请输入手机号">
+            </div>
+            <div class="form-group">
+                <label>具体地址</label>
+                <textarea id="addr-detail" rows="3" placeholder="请输入省市区街道门牌号等"></textarea>
+            </div>
+            <button class="btn-submit" onclick="saveAddress()" style="margin-top:20px;">保存地址</button>
+        </div>
+    </div>
+
+    <!-- ================= 弹窗：普通登录/注册 ================= -->
+    <div id="login-modal" class="modal-overlay">
+      <div class="modal-box">
+        <span class="btn-close-modal" onclick="closeModal('login-modal')">×</span>
+        <div class="modal-tabs">
+          <div class="modal-tab active" id="tab-login" onclick="toggleAuth('login')">登录</div>
+          <div class="modal-tab" id="tab-register" onclick="toggleAuth('register')">注册</div>
+        </div>
+
+        <div id="form-login">
+          <select id="login-role" class="auth-form-input"><option value="user">普通用户</option><option value="admin">管理员 (后台)</option></select>
+          <input type="text" id="login-account" class="auth-form-input" placeholder="请输入账号"/>
+          <input type="password" id="login-password" class="auth-form-input" placeholder="请输入密码"/>
+          <button class="btn-submit" onclick="doLogin()">立即登录</button>
+        </div>
+
+        <div id="form-register" style="display: none">
+          <input type="text" id="reg-account" class="auth-form-input" placeholder="设置账号 (即登录名)"/>
+          <input type="password" id="reg-password" class="auth-form-input" placeholder="设置密码"/>
+          <button class="btn-submit" onclick="doRegister()">立即注册</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 弹窗：前台修改个人资料 ================= -->
+    <div id="edit-profile-modal" class="modal-overlay">
+      <div class="modal-box">
+        <span class="btn-close-modal" onclick="closeModal('edit-profile-modal')">×</span>
+        <h3 style="margin-bottom: 15px; text-align: center">修改个人资料</h3>
+        <div style="margin-bottom: 15px">
+          <label style="font-size: 12px; color: #666; display: block; margin-bottom: 5px;">昵称 (如果不填默认显示账号)</label>
+          <input type="text" id="edit-profile-nickname" class="auth-form-input" placeholder="请输入新昵称"/>
+        </div>
+        <div style="margin-bottom: 15px">
+          <label style="font-size: 12px; color: #666; display: block; margin-bottom: 5px;">上传新头像</label>
+          <input type="file" id="edit-profile-avatar-file" accept="image/*" class="auth-form-input" style="padding: 9px"/>
+        </div>
+        <button class="btn-submit" onclick="saveUserProfile()">保存修改</button>
+      </div>
+    </div>
+
+    <!-- ================= 弹窗：普通用户一键快捷验证管理员 ================= -->
+    <div id="admin-verify-modal" class="modal-overlay">
+      <div class="modal-box">
+        <span class="btn-close-modal" onclick="closeModal('admin-verify-modal')">×</span>
+        <h3 style="margin-bottom: 15px; text-align: center; color: var(--primary-color);">管理员登录</h3>
+        <p style="font-size: 12px; color: #999; margin-bottom: 15px; text-align: center;">验证身份直接进入后台，不影响当前用户状态</p>
+        <input type="text" id="admin-verify-account" class="auth-form-input" placeholder="管理员账号"/>
+        <input type="password" id="admin-verify-password" class="auth-form-input" placeholder="密码"/>
+        <button class="btn-submit" onclick="verifyAdminAndEnter()">进入后台</button>
+      </div>
+    </div>
+
+    <!-- ================= 管理员后台系统 (彻底强制使用移动端APP样式) ================= -->
+    <div id="admin-dashboard">
+      <div class="admin-sidebar">
+        <div class="admin-logo">后台管理<span class="admin-logout-mobile" onclick="logoutAdmin()">退出</span></div>
+        <div class="admin-menu">
+          <div class="admin-menu-item active" onclick="switchAdminTab('products', this)">📦 商品管理</div>
+          <div class="admin-menu-item" onclick="switchAdminTab('orders', this)">📝 订单管理</div>
+          <div class="admin-menu-item" onclick="switchAdminTab('users', this)">👥 用户管理</div>
+        </div>
+      </div>
+
+      <div class="admin-content">
+        <!-- 1. 商品管理 -->
+        <div id="admin-products" class="admin-panel active">
+          <h2>商品管理</h2>
+          <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3 id="admin-prod-form-title" style="margin-bottom: 10px; font-size: 14px">添加新商品</h3>
+            <div class="admin-form-row"><input type="text" id="add-prod-name" placeholder="商品名称" /><input type="number" id="add-prod-price" placeholder="价格 (元)"/></div>
+            <div class="admin-form-row" style="flex-direction: row">
+              <input type="file" id="add-prod-img-file" accept="image/*" style="padding: 5px; background: #fff" onchange="previewProductImage(this)"/>
+              <img id="add-prod-img-preview" src="" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; display: none; border: 1px solid #ddd;"/>
+            </div>
+            <div class="admin-form-row"><textarea id="add-prod-desc" rows="2" placeholder="商品介绍文字..."></textarea></div>
+            <div style="display: flex; gap: 10px">
+              <button id="btn-save-prod" class="admin-btn btn-blue" style="height: 44px; flex: 1" onclick="adminSaveProduct()">+ 添加商品</button>
+              <button id="btn-cancel-prod" class="admin-btn btn-orange" style="height: 44px; flex: 1; display: none" onclick="cancelEditProduct()">取消修改</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="admin-product-table"><thead><tr><th>ID</th><th>图片</th><th>名称</th><th>价格</th><th>操作</th></tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+        <!-- 2. 订单管理 -->
+        <div id="admin-orders" class="admin-panel">
+          <h2>商品订单管理</h2>
+          <div class="table-responsive">
+            <table id="admin-order-table"><thead><tr><th>订单号</th><th>购买用户</th><th>商品名称</th><th>收货地址</th><th>状态</th><th>操作</th></tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+        <!-- 3. 用户信息管理 -->
+        <div id="admin-users" class="admin-panel">
+          <h2>用户信息管理</h2>
+          <p style="font-size: 12px; color: #666; margin-bottom: 10px">💡 提示：点击用户头像图片可直接为其上传替换新头像。</p>
+          <div class="table-responsive">
+            <table id="admin-user-table"><thead><tr><th>角色</th><th>账号/昵称</th><th>密码</th><th>头像 (点击修改)</th><th>收货地址</th></tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+    
+  </body>
+</html>
